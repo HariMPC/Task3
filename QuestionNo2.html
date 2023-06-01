@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API CALLING</title>
+    <script>
+        function myfunc(){
+            var xmlHTTP = new XMLHttpRequest();
+            xmlHTTP.open('GET','https://restcountries.com/v3.1/all',true);
+            xmlHTTP.send();
+
+            xmlHTTP.onload = function(){
+                var data = JSON.parse(this.response);
+                data.forEach((country) =>{
+                console.log(country.flags);
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="myfunc()"> flags </button>
+</body>
+</html>
